@@ -4,7 +4,6 @@ class Song < ActiveRecord::Base
     scope: [:artist_name, :release_year],
     message: "cannot be repeated by the same artist in the same year"
   }
-
   validates :released, inclusion: { in: [true, false] }
   validates :released, exclusion: { in: [nil] }
   validates :release_year, presence: true, if: :sent? 
